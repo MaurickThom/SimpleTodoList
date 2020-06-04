@@ -113,12 +113,14 @@ todoContainer.addEventListener('click', event => {
         todo.addEventListener('transitionend',()=>{
             deleteItem(todo.id)
             todo.remove()
+            drawList(filterTodo.selectedIndex)
         })
     }
     if (target.closest('.complete-btn') !== null) {
         const todo = target.closest('.complete-btn').parentElement
         changeState(todo.id)
         todo.classList.toggle('completed')
+        drawList(filterTodo.selectedIndex)
     }
 })
 filterTodo.addEventListener('change',event=>{
